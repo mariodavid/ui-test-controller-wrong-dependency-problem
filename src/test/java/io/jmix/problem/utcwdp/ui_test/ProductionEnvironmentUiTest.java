@@ -17,6 +17,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 
 @SpringBootTest
@@ -52,7 +53,7 @@ class ProductionEnvironmentUiTest {
   void given_differentScreen_and_productionEnvironmentConfigured_when_isEnvironmentThroughController_expect_production(Screens screens) {
 
     assertThat(environmentInformation)
-        .isInstanceOf(TestingEnvironment.class);
+        .isInstanceOf(ProductionEnvironment.class);
 
     EnvironmentScreen screen = screens.create(EnvironmentScreen.class);
     screen.show();
